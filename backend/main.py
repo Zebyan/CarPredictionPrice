@@ -49,9 +49,9 @@ def model_status():
     import os
     from pathlib import Path
     
-    model_path = Path("backend/models_storage/random_forest_best.pkl")
+    model_path = Path("backend/models_storage/random_forest_light.pkl")
     preprocessor_path = Path("backend/models_storage/preprocessor.pkl")
-    metadata_path = Path("backend/models_storage/metadata/random_forest_best_metadata.json")
+    metadata_path = Path("backend/models_storage/metadata/random_forest_light_metadata.json")
     
     status = {
         "model_file": {

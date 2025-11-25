@@ -9,7 +9,7 @@
     "max_features": 0.5,
     "bootstrap": true
   },
-  "metrics": {
+  "performance_metrics": {
     "rmse_log": 0.33400301707282726,
     "r2_log": 0.7934798779906089,
     "rmse_price_eur": 3797.3435387939294,

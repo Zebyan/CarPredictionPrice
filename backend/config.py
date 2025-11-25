@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     model_path: str = str(
         BASE_DIR
         / "models_storage"
-        / "random_forest_best.pkl"
+        / "random_forest_light.pkl"
     )
 
     preprocessor_path: str = str(
@@ -38,7 +38,7 @@ class Settings(BaseSettings):
         BASE_DIR
         / "models_storage"
         / "metadata"
-        / "random_forest_best_metadata.json"
+        / "random_forest_light_metadata.json"
     )
 
     class Config:
