@@ -1,0 +1,20 @@
+{
+  "model_type": "RandomForestRegressor (lightweight)",
+  "saved_at": "2025-11-25T22:42:22.112467",
+  "parameters": {
+    "n_estimators": 150,
+    "max_depth": 15,
+    "min_samples_split": 4,
+    "min_samples_leaf": 1,
+    "max_features": 0.5,
+    "bootstrap": true
+  },
+  "metrics": {
+    "rmse_log": 0.33256104438448064,
+    "r2_log": 0.7952592244663003,
+    "rmse_price_eur": 3811.135098178382,
+    "mae_price_eur": 1802.9998411800682,
+    "mape_percent": 23.363217006496836,
+    "accuracy_percent": 76.63678299350316
+  }
+}
