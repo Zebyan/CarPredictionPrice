@@ -167,4 +167,4 @@ class OLXRomaniaScraper:
 
 if __name__ == '__main__':
     scraper = OLXRomaniaScraper(output_dir='carData')  # Save data in 'carData' directory
-    scraper.run(num_pages=20)  # Scrape 5 pages for each brand
+    scraper.run(num_pages=20)  # Scrape 20 pages for each brand

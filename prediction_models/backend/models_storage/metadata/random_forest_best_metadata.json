@@ -1,5 +1,5 @@
 {
-  "saved_at": "2025-11-25T19:09:58.487609",
+  "saved_at": "2025-11-25T21:34:45.043376",
   "model_type": "RandomForestRegressor",
   "tuning_method": "RandomizedSearchCV",
   "random_search": {
