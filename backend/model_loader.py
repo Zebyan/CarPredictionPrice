@@ -34,10 +34,6 @@ class ModelLoader:
         """
         Load the trained model (RandomForest Pipeline).
 
-        - Ia path-ul din settings dacă nu este dat explicit.
-        - Extrage preprocessor-ul din pipeline.
-        - PATCH: pentru fiecare OneHotEncoder, forțează categories_ de tip object
-                 să fie toate stringuri (fără amestec str/int).
         """
         if model_path is None:
             from backend.config import settings
@@ -66,7 +62,6 @@ class ModelLoader:
                                 if isinstance(transformer, OneHotEncoder):
                                     new_cats = []
                                     for arr in transformer.categories_:
-                                        # convertim TOATE valorile la string, ca să nu existe mix str/int
                                         if arr.dtype == object:
                                             arr_str = arr.astype(str)
                                             new_cats.append(arr_str)
@@ -108,10 +103,6 @@ class ModelLoader:
         """
         Load the preprocessor.
 
-        Nou comportament:
-          - Preferă 'preprocessor' extras din pipeline.
-        Comportament vechi (fallback):
-          - Dacă nu există în pipeline, încearcă să încarce separat din fișier.
         """
         if cls._preprocessor is not None:
             return cls._preprocessor
@@ -131,7 +122,7 @@ class ModelLoader:
 
                 return cls._preprocessor
 
-        # 2) Fallback: preprocessor salvat separat (dacă există)
+        # 2) Fallback: save preprocessor if it exits
         if preprocessor_path is None:
             try:
                 from backend.config import settings
@@ -214,9 +205,6 @@ class ModelLoader:
         """
         Get model information based on metadata for the current model.
 
-        Compatibil cu:
-          - noul format de metadata (RandomForest + log/price metrics)
-          - eventual format vechi (HistGBR / alte chei)
         """
         metadata = cls.load_metadata()
         if metadata is None:

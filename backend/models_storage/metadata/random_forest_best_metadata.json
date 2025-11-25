@@ -1,29 +1,29 @@
 {
-  "saved_at": "2025-11-25T16:22:39.476898",
+  "saved_at": "2025-11-25T21:34:45.043376",
   "model_type": "RandomForestRegressor",
   "tuning_method": "RandomizedSearchCV",
   "random_search": {
-    "n_iter": 3,
-    "cv_folds": 3,
+    "n_iter": 40,
+    "cv_folds": 4,
     "scoring": "neg_mean_squared_error (log-space pret_log)"
   },
   "best_parameters": {
-    "rf__n_estimators": 800,
+    "rf__n_estimators": 1000,
     "rf__min_samples_split": 6,
-    "rf__min_samples_leaf": 2,
+    "rf__min_samples_leaf": 1,
     "rf__max_features": 0.5,
     "rf__max_depth": 20,
     "rf__bootstrap": true
   },
   "performance_metrics": {
-    "rmse_log": 0.3322560882181082,
-    "r2_log": 0.7956345440410405,
-    "rmse_price_eur": 3796.2136058768215,
-    "mae_price_eur": 1789.9377549662154,
-    "r2_price": 0.7610846174451832,
-    "mape_percent": 23.173101964722477,
-    "accuracy_percent": 76.82689803527752,
-    "cv_best_neg_mse_log": -0.10054904371375854
+    "rmse_log": 0.3317815320713856,
+    "r2_log": 0.7962179110713282,
+    "rmse_price_eur": 3799.6022653069926,
+    "mae_price_eur": 1791.8911407050296,
+    "r2_price": 0.7606578952999467,
+    "mape_percent": 23.16833907074,
+    "accuracy_percent": 76.83166092926,
+    "cv_best_neg_mse_log": -0.09958699105698841
   },
   "training_info": {
     "train_samples": 7538,
@@ -107,102 +107,102 @@
     {
       "rank": 0,
       "name": "num__age_years",
-      "importance": 0.21420201194465655
+      "importance": 0.21467435354752998
     },
     {
       "rank": 1,
       "name": "num__an fabricatie",
-      "importance": 0.18776834925998756
+      "importance": 0.18610715820529744
     },
     {
       "rank": 2,
       "name": "num__putere",
-      "importance": 0.13176218229639003
+      "importance": 0.1313078911923275
     },
     {
       "rank": 3,
       "name": "cat__car_era_modern_recent",
-      "importance": 0.048665534859697025
+      "importance": 0.04536564796470447
     },
     {
       "rank": 4,
       "name": "num__era_modern_recent",
-      "importance": 0.046921986565936206
+      "importance": 0.04432026521928999
     },
     {
       "rank": 5,
-      "name": "num__capacitate motor",
-      "importance": 0.032891255259963954
+      "name": "num__log_engine_size",
+      "importance": 0.032337431004947396
     },
     {
       "rank": 6,
-      "name": "num__log_engine_size",
-      "importance": 0.03281870889916087
+      "name": "num__capacitate motor",
+      "importance": 0.032053823869696844
     },
     {
       "rank": 7,
-      "name": "num__rulaj",
-      "importance": 0.01699180179371477
+      "name": "num__log_mileage",
+      "importance": 0.017222708681004863
     },
     {
       "rank": 8,
-      "name": "num__log_mileage",
-      "importance": 0.016756975435703092
+      "name": "num__rulaj",
+      "importance": 0.01706106289898293
     },
     {
       "rank": 9,
       "name": "num__new_car_flag",
-      "importance": 0.016593520580365517
+      "importance": 0.015730053130994764
     },
     {
       "rank": 10,
-      "name": "num__is_automatic",
-      "importance": 0.015829081525915445
+      "name": "cat__age_bin_2010\u20132015",
+      "importance": 0.015289427581425563
     },
     {
       "rank": 11,
-      "name": "cat__age_bin_2010\u20132015",
-      "importance": 0.015100185792551877
+      "name": "num__is_automatic",
+      "importance": 0.015157178812976131
     },
     {
       "rank": 12,
       "name": "num__model_frequency",
-      "importance": 0.014274598875080662
+      "importance": 0.013958334501284976
     },
     {
       "rank": 13,
       "name": "num__mileage_per_year",
-      "importance": 0.013622687864289072
+      "importance": 0.013540682637040275
     },
     {
       "rank": 14,
       "name": "cat__cutie viteza_Automata",
-      "importance": 0.012844530461110549
+      "importance": 0.013304224483902708
     },
     {
       "rank": 15,
-      "name": "num__power_to_displacement",
-      "importance": 0.012067170147096296
+      "name": "num__power_per_liter",
+      "importance": 0.012154448484887233
     },
     {
       "rank": 16,
-      "name": "num__power_per_liter",
-      "importance": 0.011569851242914096
+      "name": "num__power_to_displacement",
+      "importance": 0.011891887877990483
     },
     {
       "rank": 17,
       "name": "num__premium_new",
-      "importance": 0.009364610562397405
+      "importance": 0.008573910062072329
     },
     {
       "rank": 18,
       "name": "cat__cutie viteza_Manuala",
-      "importance": 0.008068659313712012
+      "importance": 0.008550160951112764
     },
     {
       "rank": 19,
       "name": "num__is_manual",
-      "importance": 0.0075829963959871075
+      "importance": 0.007050994125898246
     }
   ],
   "paths": {

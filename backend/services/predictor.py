@@ -15,21 +15,16 @@ logger = logging.getLogger(__name__)
 
 
 # =====================================================================
-# HELPER: citesc metricile din metadata (fallback dacă lipsesc în settings)
+# HELPER: read metrics from metadata (fallback if they don't exist)
 # =====================================================================
 
 def _get_error_stats() -> tuple[float, float]:
-    """
-    Returnează (mae_price_eur, mape_percent) din:
-      1) settings (dacă sunt setate acolo),
-      2) metadata.performance_metrics,
-      3) sau valori default hardcodate.
-    """
-    # 1) încerc din settings
+
+    # 1) Load from settings
     mae = getattr(settings, "model_mae", None)
     mape = getattr(settings, "model_mape", None)
 
-    # 2) dacă lipsesc, încercăm din metadata
+    # 2) Try metadata if not in settings
     if mae is None or mape is None:
         meta = ModelLoader.load_metadata() or {}
         perf = meta.get("performance_metrics", {}) or {}
@@ -46,7 +41,7 @@ def _get_error_stats() -> tuple[float, float]:
                 or perf.get("mape")
             )
 
-    # 3) fallback final
+    # 3) fallback 
     if mae is None:
         mae = 1800.0
     if mape is None:
@@ -56,16 +51,13 @@ def _get_error_stats() -> tuple[float, float]:
 
 
 # =====================================================================
-# PREDICȚIE
+# PREDICTION
 # =====================================================================
 
 def predict_price(features_df: pd.DataFrame) -> float:
     """
     Predict car price from engineered features.
 
-    - features_df: DataFrame cu o singură linie, returnat de engineer_features().
-    - Modelul este un Pipeline (preprocessor + RandomForest) încărcat via ModelLoader.
-    - Modelul prezice log(pret + 1); noi convertim înapoi în EUR cu expm1.
     """
     model = ModelLoader.load_model()
     if model is None:
@@ -103,30 +95,16 @@ def price_confidence_interval(
     features_df: Optional[pd.DataFrame] = None,
 ) -> Dict[str, float]:
     """
-    Calculează interval de încredere în jurul predicției.
 
-    Logică:
-      - Folosim MAPE global (~eroare procentuală medie) => margină proporțională cu prețul.
-      - margin = predicted_price * (MAPE / 100)
-      - min/max = predicted_price ± margin
-      - Pentru stabilitate, aplicăm un mic floor absolut (10% din MAE),
-        ca să nu avem intervale ridicol de mici la prețuri foarte mici.
 
-    Parametri:
-      predicted_price: prețul prezis (EUR)
-      features_df: DataFrame cu features pentru mașina curentă (deocamdată nefolosit aici,
-                   dar păstrat pentru extensii viitoare per-segment).
-
-    Returnează:
-      dict cu cheile: min_price, max_price, margin, confidence
     """
-    mae, mape = _get_error_stats()  # mae în EUR, mape în %
+    mae, mape = _get_error_stats()  # mae in EUR, mape in %
 
-    # margină procentuală
+    # Margin
     pct = mape / 100.0
     margin_pct = predicted_price * pct
 
-    # floor absolut mic: 10% din MAE, ca să nu fie intervalul prea mic pe mașini foarte ieftine
+    # Keep interval realistc for very cheap cars
     abs_floor = mae * 0.10
 
     margin = max(margin_pct, abs_floor)
@@ -145,15 +123,12 @@ def price_confidence_interval(
 
 
 # =====================================================================
-# METADATE PENTRU UI / HEALTH
+# METADATA FOR UI / HEALTH
 # =====================================================================
 
 def get_prediction_metadata() -> Dict[str, Any]:
     """
-    Info despre model pentru UI / health endpoint.
-
-    Încearcă să citească cât mai mult din ModelLoader.get_model_info()
-    și completează cu fallback-uri.
+    MODEL INFO
     """
     info = {}
     try:

@@ -16,7 +16,6 @@ def health_check():
         elif "error" in model_info:
             model_status = "error"
         else:
-            # Acceptă și vechiul 'accuracy', și noul 'accuracy_percent'
             accuracy = (
                 model_info.get("accuracy")
                 or model_info.get("accuracy_percent")

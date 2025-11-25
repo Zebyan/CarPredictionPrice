@@ -1,4 +1,4 @@
-PREMIUM_BRANDS = ["bmw", "audi", "mercedes-benz", "porsche", "volvo"]
+''' PREMIUM_BRANDS = ["bmw", "audi", "mercedes-benz", "porsche", "volvo"]
 
 FUEL_MULTIPLIERS = {
     "Diesel": 1.05,
@@ -18,3 +18,4 @@ BODY_MULTIPLIERS = {
     "Minibus": 0.9,
     "Pickup": 0.85,
 }
+'''

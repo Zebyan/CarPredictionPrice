@@ -5,7 +5,7 @@ from typing import Dict, Any
 from backend.models.schemas import CarPredictionRequest
 
 # ============================================================
-# CONSTANTS – must align with training notebook
+# CONSTANTS
 # ============================================================
 
 PREMIUM_BRANDS = [
@@ -293,7 +293,7 @@ def engineer_features(data: CarPredictionRequest) -> pd.DataFrame:
     # 13. BUILD FEATURE DICTIONARY
     # --------------------------------------------------------
     features_dict = {
-        # CATEGORICE
+        # CATEGORICAL
         "marca": marca_raw,
         "brand_category": brand_category,
         "model_simplified": model_simplified,
@@ -305,11 +305,9 @@ def engineer_features(data: CarPredictionRequest) -> pd.DataFrame:
         "hp_bin": hp_bin,
         "mileage_bin": mileage_bin,
         "age_bin": age_bin,
-        # IMPORTANT: în training ai avut coloana asta ca feature categorial.
-        # Acum o trimitem clar ca string ("0", "1", "2").
         "brand_category.1": str({"standard": 0, "budget": 1, "premium": 2}[brand_category]),
 
-        # NUMERICE
+        # NUMERICAL
         "capacitate motor": capacitate_motor,
         "putere": putere,
         "rulaj": rulaj,
@@ -367,7 +365,6 @@ def engineer_features(data: CarPredictionRequest) -> pd.DataFrame:
     # --------------------------------------------------------
     df = pd.DataFrame([features_dict])
 
-    # asigurăm dtypes pentru categorice – EXACT lista din metadata
     categorical_cols = [
         "marca",
         "brand_category",
