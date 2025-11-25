@@ -1,7 +1,7 @@
 # Car Price Prediction
 
 ### 🔗 Live Demo: https://car-prediction-price.vercel.app/  
-### 🔗 Backend API (Swagger UI): https://carpredictionprice-1.onrender.com/docs  
+### 🔗 Backend API (Swagger UI): https://carpredictionprice-1.onrender.com/docs - initial 50s wait time
 
 A complete end-to-end machine learning pipeline and web application for predicting the prices of used cars.  
 It includes **custom web scraping**, dataset construction, outlier detection, feature engineering, model training,  
