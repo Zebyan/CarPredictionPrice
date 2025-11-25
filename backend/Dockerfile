@@ -19,7 +19,7 @@ RUN mkdir -p /app/backend/models_storage
 
 # Download the model from GitHub Release
 RUN curl -L "https://github.com/Zebyan/CarPredictionPrice/releases/download/rf-model/random_forest_light.pkl" \
-    -o /app/backend/models_storage/random_forest_best.pkl
+    -o /app/backend/models_storage/random_forest_light.pkl
 
 ENV PYTHONPATH=/app
 
