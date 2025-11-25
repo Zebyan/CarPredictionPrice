@@ -1,0 +1,65 @@
+{
+  "saved_at": "2025-11-23T18:18:20.247269",
+  "model_type": "RandomForestRegressor (via GridSearchCV)",
+  "framework": "scikit-learn",
+  "best_parameters": {
+    "model__max_depth": null,
+    "model__min_samples_leaf": 2,
+    "model__min_samples_split": 10,
+    "model__n_estimators": 400
+  },
+  "performance_metrics": {
+    "mae_euros": 1298.73,
+    "r2_score": 0.863,
+    "mape_percent": 20.85,
+    "accuracy_percent": 79.15,
+    "cv_mae_log_price": 0.2248
+  },
+  "training_info": {
+    "train_samples": 7619,
+    "test_samples": 1905,
+    "cv_folds": 5,
+    "total_features": 26,
+    "numeric_features": 20,
+    "categorical_features": 6
+  },
+  "features": {
+    "numeric": [
+      "age",
+      "km_per_year",
+      "rulaj",
+      "capacitate motor",
+      "putere",
+      "putere_per_liter",
+      "old_diesel",
+      "brand_tier",
+      "is_premium",
+      "is_electric",
+      "is_hybrid",
+      "is_automatic",
+      "body_tier",
+      "age_x_power",
+      "premium_x_suv",
+      "power_x_cc",
+      "auto_x_premium",
+      "age_x_km_year",
+      "body_x_power",
+      "age_x_brandtier"
+    ],
+    "categorical": [
+      "combustibil",
+      "caroserie",
+      "engine_type",
+      "age_category",
+      "rulaj_cat",
+      "segment"
+    ]
+  },
+  "model_interpretation": {
+    "interpretation": "RandomForest explains 86.3% of car price variance",
+    "typical_error": "\u00b1\u20ac1,299 on average",
+    "typical_error_percent": "20.85% MAPE",
+    "best_for": "Prices under \u20ac30k (tight predictions)",
+    "note": "Model shows slight over-prediction for cars > \u20ac40k"
+  }
+}

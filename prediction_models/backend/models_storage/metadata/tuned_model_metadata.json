@@ -1,0 +1,102 @@
+{
+  "saved_at": "2025-11-24T20:57:38.001699",
+  "tuning_method": "RandomizedSearchCV (50 iterations)",
+  "cv_folds": 5,
+  "best_parameters": {
+    "model__n_estimators": 600,
+    "model__min_samples_split": 4,
+    "model__min_samples_leaf": 1,
+    "model__max_features": 0.5,
+    "model__max_depth": 20,
+    "model__bootstrap": true
+  },
+  "performance_metrics": {
+    "mae_euros": 1787.2863423995773,
+    "mape_percent": 23.433644532888252,
+    "r2_score": 0.8030807100976715,
+    "accuracy_percent": 76.56635546711175,
+    "cv_mae_log": 0.22613172398958623
+  },
+  "training_info": {
+    "train_samples": 7117,
+    "test_samples": 1780,
+    "total_features": 30
+  },
+  "top_features": [
+    {
+      "rank": 1,
+      "name": "condition_score",
+      "importance": 0.22180744953355203
+    },
+    {
+      "rank": 2,
+      "name": "age_squared",
+      "importance": 0.08473947832955794
+    },
+    {
+      "rank": 3,
+      "name": "age_cubed",
+      "importance": 0.08137871950747522
+    },
+    {
+      "rank": 4,
+      "name": "age",
+      "importance": 0.07804887285215024
+    },
+    {
+      "rank": 5,
+      "name": "modern_tech_score",
+      "importance": 0.06536956647326869
+    },
+    {
+      "rank": 6,
+      "name": "power_x_cc",
+      "importance": 0.043310037159003514
+    },
+    {
+      "rank": 7,
+      "name": "torque_proxy",
+      "importance": 0.04157106696779055
+    },
+    {
+      "rank": 8,
+      "name": "putere",
+      "importance": 0.040599843147433506
+    },
+    {
+      "rank": 9,
+      "name": "luxury_index",
+      "importance": 0.03788845988190496
+    },
+    {
+      "rank": 10,
+      "name": "age_decay",
+      "importance": 0.03534436496169645
+    },
+    {
+      "rank": 11,
+      "name": "an fabricatie",
+      "importance": 0.034703242175238944
+    },
+    {
+      "rank": 12,
+      "name": "fuel_efficiency_score",
+      "importance": 0.03043671713983887
+    },
+    {
+      "rank": 13,
+      "name": "body_x_power",
+      "importance": 0.0212051876813215
+    },
+    {
+      "rank": 14,
+      "name": "age_mileage_wear",
+      "importance": 0.02077612782641423
+    },
+    {
+      "rank": 15,
+      "name": "mileage_efficiency",
+      "importance": 0.016581111138225545
+    }
+  ]
+}
