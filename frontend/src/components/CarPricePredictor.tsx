@@ -68,7 +68,7 @@ function brandLabel(brand: string): string {
 const getModelsForBrand = (brand: string) => BRAND_MODELS[brand] ?? [];
 
 export default function CarPricePredictor() {
-  const API_BASE_URL = 'http://localhost:8000';
+  const API_BASE_URL = 'https://carpredictionprice-1.onrender.com';
 
   const [formData, setFormData] = useState<FormData>({
     marca: 'volkswagen',
@@ -145,7 +145,7 @@ export default function CarPricePredictor() {
         <header className="cpp-header">
           <div className="cpp-badge">
             <TrendingUp size={16} />
-            <span>Auto Valuation</span>
+            <span>Auto Evaluation</span>
           </div>
           <h1>Car Price Predictor</h1>
           <p className="cpp-subtitle">
@@ -258,7 +258,7 @@ export default function CarPricePredictor() {
               ) : (
                 <>
                   <BarChart3 size={18} />
-                  Get Valuation
+                  Evaluate
                 </>
               )}
             </button>
